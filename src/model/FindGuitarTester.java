@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public class FindGuitarTester {
-
 	public static void main(String[] args) {
 		// Set up Rick's inventory
 		Inventory inventory = new Inventory();

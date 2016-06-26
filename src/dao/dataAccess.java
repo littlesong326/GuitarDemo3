@@ -16,6 +16,4 @@ public class dataAccess {
 		return result;
 	}
 
-	
-
 }
