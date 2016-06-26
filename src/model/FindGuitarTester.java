@@ -31,6 +31,7 @@ public class FindGuitarTester {
 				}
 				System.out.println("  You can have this " + spec.getProperty("GuitarType") + " for $"
 						+ Guitar.getPrice() + "\n---");
+				
 			}
 		} else {
 			System.out.println("Sorry, Bryan, we have nothing for you.");

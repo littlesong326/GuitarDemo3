@@ -6,5 +6,6 @@ import model.Guitar;
 
 public interface IGuitar {
 	public List<Guitar> getAllGuitars();
+	
 
 }
