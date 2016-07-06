@@ -39,10 +39,10 @@ public class Inventory {
 		return matchingGuitars;
 	}
 	
-	public void initInventory(){
-		IGuitar iG = dataAccess.createGuitarDao();
-		List<Guitar> list = iG.getAllGuitars();
-		for (Iterator<Guitar> i = list.iterator(); i.hasNext();) {
+	public void initialize(){
+		IGuitar ig = dataAccess.createGuitarDao();
+		List<Guitar> allGuitars = ig.getAllGuitars();
+		for (Iterator<Guitar> i = allGuitars.iterator(); i.hasNext();) {
 			Guitar guitar = (Guitar) i.next();
 			addGuitar(guitar);
 		}

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FindGuitarTester {
+
 	public static void main(String[] args) {
 		// Set up Rick's inventory
 		Inventory inventory = new Inventory();
@@ -31,7 +32,6 @@ public class FindGuitarTester {
 				}
 				System.out.println("  You can have this " + spec.getProperty("GuitarType") + " for $"
 						+ Guitar.getPrice() + "\n---");
-				
 			}
 		} else {
 			System.out.println("Sorry, Bryan, we have nothing for you.");

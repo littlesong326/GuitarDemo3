@@ -15,12 +15,15 @@ public class GuitarSpec {
 			this.properties = new HashMap(properties);
 		}
 	}
+
 	public Object getProperty(String propertyName) {
 		return properties.get(propertyName);
 	}
+
 	public Map getProperties() {
 		return properties;
 	}
+
 	public boolean matches(GuitarSpec otherSpec) {
 		for (Iterator i = otherSpec.getProperties().keySet().iterator(); i.hasNext();) {
 			String propertyName = (String) i.next();

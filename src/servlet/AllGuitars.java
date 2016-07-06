@@ -16,26 +16,21 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import model.Builder;
-import model.GuitarSpec;
-import dao.IGuitar;
-import model.Type;
-import model.Wood;
-import dao.dataAccess;
 import model.Guitar;
+import model.GuitarSpec;
 import model.Inventory;
 
 /**
- * Servlet implementation class SearchGuitars
+ * Servlet implementation class AllGuitars
  */
-@WebServlet("/SearchGuitars")
-public class SearchGuitars extends HttpServlet {
+@WebServlet("/AllGuitars")
+public class AllGuitars extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SearchGuitars() {
+	public AllGuitars() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -58,33 +53,11 @@ public class SearchGuitars extends HttpServlet {
 		Inventory inventory = new Inventory();
 		inventory.initialize();
 
-		// 初始化用户查询的GuitarSpec
+		// 空GuitarSpec
 		Map properties = new HashMap();
-		
-		//文本框内有内容才写入properties
-		if(request.getParameter("Builder")!=null&&request.getParameter("Builder").length()>0){
-			properties.put("builder", Builder.valueOf(request.getParameter("Builder").toUpperCase().replaceAll(" ", "_")));
-		}
-		if(request.getParameter("BackWood")!=null&&request.getParameter("BackWood").length()>0){
-			properties.put("backWood", Wood.valueOf(request.getParameter("BackWood").toUpperCase().replaceAll(" ", "_")));
-		}
-		if(request.getParameter("TopWood")!=null&&request.getParameter("TopWood").length()>0){
-			properties.put("topWood", Wood.valueOf(request.getParameter("TopWood").toUpperCase().replaceAll(" ", "_")));
-		}
-		if(request.getParameter("Model")!=null&&request.getParameter("Model").length()>0){
-			properties.put("model", request.getParameter("Model").toUpperCase().replaceAll(" ", "_"));
-		}
-		if(request.getParameter("Type")!=null&&request.getParameter("Type").length()>0){
-			properties.put("type", Type.valueOf(request.getParameter("Type").toUpperCase().replaceAll(" ", "_")));
-		}
-		if(request.getParameter("stringNum")!=null&&request.getParameter("stringNum").length()>0){
-			properties.put("StringNum", request.getParameter("stringNum"));
-		}
-		
-		GuitarSpec userSpec = new GuitarSpec(properties);
-
+		GuitarSpec Nullspec = new GuitarSpec(properties);
 		// 查询匹配
-		List<Guitar> Guitars = inventory.search(userSpec);
+		List<Guitar> Guitars = inventory.search(Nullspec);
 
 		if (!Guitars.isEmpty()) {
 			for (Iterator<Guitar> i = Guitars.iterator(); i.hasNext();) {
@@ -116,4 +89,5 @@ public class SearchGuitars extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }
